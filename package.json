@@ -1,0 +1,45 @@
+{
+  "name": "expense-consumption-tracker",
+  "version": "1.0.0",
+  "description": "Cross-platform desktop app for tracking monthly expenses and consumption",
+  "packageManager": "bun@1.2.4",
+  "main": "main.js",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "start": "bunx electron .",
+    "dev": "bunx electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "dist:win": "electron-builder --win",
+    "dist:mac": "electron-builder --mac"
+  },
+  "build": {
+    "appId": "com.personal.expenses",
+    "productName": "Expense Consumption Tracker",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "src/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "category": "public.app-category.finance"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    }
+  },
+  "devDependencies": {
+    "electron": "^32.2.0",
+    "electron-builder": "^24.13.3"
+  }
+}
